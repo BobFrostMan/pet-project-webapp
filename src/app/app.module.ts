@@ -8,13 +8,13 @@ import { LoginComponent } from './components/common/login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    LoginComponent
+  AppComponent,
+  HeaderComponent,
+  FooterComponent,
+  LoginComponent
   ],
   imports: [
-    BrowserModule
+  BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

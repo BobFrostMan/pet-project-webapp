@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  logged:boolean
+
   constructor() { }
 
   ngOnInit() {
+  	this.logged = true;
+  }
+
+  isLoggedIn(){
+  	console.log(this.logged);
+  	return this.logged;
   }
 
 }
