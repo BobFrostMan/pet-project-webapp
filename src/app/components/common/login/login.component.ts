@@ -1,23 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UserService } from './../../../services/user/user.service';
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+	selector: 'app-login',
+	templateUrl: './login.component.html',
+	styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
-  logged:boolean
+	constructor(private userService:UserService) { }
 
-  constructor() { }
+	ngOnInit() {
+	}
 
-  ngOnInit() {
-  	this.logged = true;
-  }
+	logIn(login:string, password:string){
+		console.log("Attempt to login as '" + login + "'");
+		console.log("Password: " + password);
+		this.userService.auth(login, password)
+		//invoke UserService auth action
+		return false;
+	}
 
-  isLoggedIn(){
-  	console.log(this.logged);
-  	return this.logged;
-  }
+	isLoggedIn(){
+		return false;
+	}
 
 }

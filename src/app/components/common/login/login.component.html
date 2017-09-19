@@ -1,31 +1,33 @@
-  <div class="container">
-  	<div class="row">
-  		<div class="col-md-12">
-  			<div class="page-header">
-  				<h2> </h2>
-  			</div>
-  		</div>
-  	</div>
+<div class="container">
 
-  	<div class="col-md-12" ng-controller="LoginCtrl">
+  <div class="row align-items-center">
+  	<div class="login-form">
   		<div>
-  			<h4>Log in, please</h4>
+        <h4>Sign in, please</h4>
   		</div>
-  		<form class="form">
-  			<div class="col-md-4">
+
+      <div>
+  		<form class="form" (submit)="logIn(login.value, password.value)">
+
+  			<div>
   				<div class="form-group">
-  					<input type="text" ng-model="login" class="form-control" placeholder="username" required=""/>
+  					<input type="text" #login class="form-control" placeholder="username" required="true"/>
   				</div>
 
   				<div class="form-group">
-  					<input type="password" ng-model="pass" class="form-control" placeholder="password" required=""/>
+  					<input type="password" #password class="form-control" placeholder="password" required="true"/>
   				</div>
 
   				<div class="form-group">
-  					<button type="submit" ng-click="loginHandler()"  class="btn btn-success">Login</button>
-  					<span ng-if="showError" class="text-danger">{{ error }}</span>
+            <p>Click <a href="#">here to sign up</a></p>
+  					<button type="submit" class="btn btn-success">Sign in</button>
+  					<span ng-if="returnedError" class="text-danger">{{ error }}</span>
   				</div>
   			</div>
+
   		</form>
   	</div>
   </div>
+  </div>
+
+</div>

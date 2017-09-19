@@ -5,12 +5,14 @@
 
 </head>
 
-    <!-- TODO: add ngIf + validation-->
+<div *ngIf="isLoggedIn(); else elseBlock">
     <app-header></app-header>
     <!--ng router should be here-->
+</div>
 
-    <app-login></app-login>
-
+<ng-template #elseBlock>
+  <app-login></app-login>
+</ng-template>
 
 <app-footer></app-footer>
 
