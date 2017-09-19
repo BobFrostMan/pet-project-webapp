@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import 'rxjs/Rx';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/common/header/header.component';
@@ -13,7 +14,6 @@ import { UserService } from './services/user/user.service';
   declarations: [
     AppComponent,
     HeaderComponent,
-    LoginComponent,
     FooterComponent
   ],
   imports: [

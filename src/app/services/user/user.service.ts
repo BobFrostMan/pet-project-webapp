@@ -11,27 +11,32 @@ export class UserService {
 	}
 
 	//returns token value on successfull authorisation, else return error
-	auth(login:string, pass:string):string | null{
+	auth(login:string, pass:string):any{
 		let payload = { 
 			"login" : login,
 			"pass" : pass
 		}
 
-		this.http.post(environment.apiEndpoint + "auth", payload).subscribe(
+		let response = null
+
+		return this.http.post(environment.apiEndpoint + "auth", payload).map(
 			res => {
 				console.log("Server processed request successfully");
-				console.log(res.json());
-				let jsonRes = res.json();
-				console.log(jsonRes);
-				let authResp:AuthResponse = Object.assign(new AuthResponse(), JSON.parse(res.json()));
-				console.log(authResp.value);
+				console.log(res);
+				return res;
+
+				// let authResp:AuthResponse = Object.assign(new AuthResponse(), JSON.parse(res, (status, data) => {
+  		// 				console.log(data); // log the current property name, the last is "".
+  		// 				return data;     // return the unchanged property value.
+  		// 			}));
+				// console.log(authResp.value);
 			}, 
 
 			err => {
 				console.log("Error occured!");
 				console.log(err.json())
+				return err;
 			});
-		return null;
 	}
 
 	hasToken(req):boolean {
@@ -40,7 +45,13 @@ export class UserService {
 
 }
 
-class AuthResponse{
+export class AuthResponse{
+	status: number;
+	data:RespData;
+}
+
+export class RespData{
 	expiration:string;
 	value:string;
 }
+

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserService } from './../../../services/user/user.service';
-
+import { AppComponent } from './../../../app.component';
 @Component({
 	selector: 'app-login',
 	templateUrl: './login.component.html',
@@ -10,21 +10,22 @@ import { UserService } from './../../../services/user/user.service';
 
 export class LoginComponent implements OnInit {
 
-	constructor(private userService:UserService) { }
+	constructor(private appComponent:AppComponent, private userService:UserService) { }
 
 	ngOnInit() {
 	}
 
-	logIn(login:string, password:string){
-		console.log("Attempt to login as '" + login + "'");
-		console.log("Password: " + password);
-		this.userService.auth(login, password)
-		//invoke UserService auth action
-		return false;
-	}
+	// logIn(login:string, password:string){
+	// 	console.log("Attempt to login as '" + login + "'");
+	// 	console.log("Password: " + password);
+	// 	let token = this.userService.auth(login, password)
+	
+	// 	this.appComponent.logged = token == null ? false: true;
+	// 	//return false;
+	// }
 
-	isLoggedIn(){
-		return false;
-	}
+	// isLoggedIn(){
+	// 	return false;
+	// }
 
 }
