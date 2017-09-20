@@ -37,11 +37,13 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   ],
   providers: [UserService, AlertService, AuthGuard, AuthenticationService, CookieService, {
      provide: HttpInterceptorService,
-      useFactory: (backend: XHRBackend, options: RequestOptions) => {
-        return new HttpInterceptorService(backend, options);
-      },
+     useFactory: httpFactory,
       deps: [XHRBackend, RequestOptions]
   }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function httpFactory(backend: XHRBackend, options: RequestOptions) {
+  return new HttpInterceptorService(backend, options);
+}

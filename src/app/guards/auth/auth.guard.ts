@@ -7,9 +7,9 @@ export class AuthGuard implements CanActivate {
     constructor(private router: Router) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        let login = localStorage.getItem('login');
-        if (login != null) {
-            console.log("Authorized as '" + login + "'. Redirect allowed.");
+        let username = localStorage.getItem('username');
+        if (username != null) {
+            console.log("Authorized as '" + username + "'. Redirect allowed.");
             return true;
         }
 

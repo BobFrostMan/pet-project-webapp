@@ -30,7 +30,7 @@ export class AuthenticationService {
                     //this.cookieService.set('token', authResp.data.value, new Date(authResp.data.expiration));
 
                     //TODO: think about this solution for auth.guard
-                    localStorage.setItem('login', login)
+                    localStorage.setItem('username', authResp.data.username)
                     localStorage.setItem('token', authResp.data.value);
                     //localStorage.setItem('token', authResp.data.value);
                     //localStorage.setItem('login', login);
@@ -61,4 +61,5 @@ export class AuthResponse{
 export class RespData{
     expiration:string;
     value:string;
+    username:string;
 }

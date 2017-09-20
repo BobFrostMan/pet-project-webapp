@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationStart, NavigationEnd } from '@angular/router';
 
 import { AuthenticationService } from './../../../services/auth/auth.service';
 import { AlertService } from './../../../services/alert/alert.service';
@@ -12,21 +12,19 @@ import { UserService } from './../../../services/user/user.service';
 })
 export class HeaderComponent implements OnInit {
 
+	greeting:string
+
 	constructor(
 		private route: ActivatedRoute,
 		private router: Router,
 		private authenticationService: AuthenticationService, 
 		private alertService: AlertService,
-		private userService:UserService
-		) { }
+		private userService:UserService) {
+	
+	}
 
 	ngOnInit() {
-		let username:string = "Logged in"
 
-		username = this.getUserName(localStorage.getItem('login'));
-		console.log("Username: " + username);
-
-		//get username from local storage
 	}
 
 	editProfile(){
@@ -45,6 +43,7 @@ export class HeaderComponent implements OnInit {
 				if (userData != null && userData.data.name != null){
 					console.log("Received user data:" + userData);
 					localStorage.setItem("user", userData.data);
+					console.log("Username: " + userData.data.name);
 					return userData.data.name;
 				}
 			},
@@ -52,7 +51,13 @@ export class HeaderComponent implements OnInit {
 				console.log("Error occured receiveing user");
 				localStorage.setItem("user", JSON.stringify('{}'));
 			});
-		return "Logged in";
+		return null;
+	}
+
+
+	getHeaderGreeting()	:string {
+		let name = localStorage.getItem('username');
+		return name == null ? "Logged in" : "Logged as: " + name;
 	}
 
 }
