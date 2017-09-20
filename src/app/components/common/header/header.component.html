@@ -1,38 +1,37 @@
+ <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+ 	<a class="navbar-brand" href="#">Pet Issue tracker</a>
+ 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+ 		<span class="navbar-toggler-icon"></span>
+ 	</button>
+ 	<div class="collapse navbar-collapse" id="navbarCollapse">
+ 		<ul class="navbar-nav mr-auto">
+ 			<li class="nav-item active">
+ 				<a class="nav-link" href="#">Dashboard<span class="sr-only">(current)</span></a>
+ 			</li>
+ 			<li class="nav-item">
+ 				<a class="nav-link" href="#">Issues</a>
+ 			</li>
+ 			<li class="nav-item">
+ 				<a class="nav-link" href="#">Profile</a>
+ 			</li>
+ 			<li>
+ 				<button class="btn btn-success" type="submit">Create issue</button>
+ 			</li>
+ 		</ul>
+ 		<div class="btn-group">
+ 			<div class="dropdown mr-2">
+ 				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ 					<i class="fa fa-user-circle" aria-hidden="true"></i>
+ 					Logged as: User
+ 				</button>
 
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+ 				<ul class="dropdown-menu dropdown-menu-left">
+ 					<li><a class="dropdown-item" href="#">Edit profile</a></li>
+ 					<div class="dropdown-divider"></div>
+ 					<li><a class="dropdown-item" (click)="logout()" href="#">Logout</a></li>
+ 				</ul>
+ 			</div>
 
-	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<a class="navbar-brand" href="#">Pet project issue tracker</a>
-
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Issues</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Projects</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">About</a>
-			</li>
-		</ul>
-		<!-- <form class="form-inline my-2 my-lg-0"> -->
-		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-			 	Profile actions
-				<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu">
-				<li class="dropdown-item"> <a href="#"> <span><i class="fa fa-home"></i> </span> Home</a> </li>
-          		<li class="dropdown-item"> <a href="#"> <span><i class="fa fa-user"></i> </span> Profile</a> </li>
-          		<li class="dropdown-item"> <a href="#"> <span><i class="fa fa-power-off"> </i> </span> Logout</a> </li>
-			</ul>
-        </div>
-	</div>
-</nav>
-
+ 		</div>
+ 	</div>
+ </nav>
