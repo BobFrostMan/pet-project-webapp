@@ -9,8 +9,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../../environments/environment';
 import 'rxjs/add/operator/map'
 
-
-
 @Injectable()
 export class AuthenticationService {
     constructor(
@@ -26,15 +24,13 @@ export class AuthenticationService {
                 let authResp:AuthResponse = Object.assign(new AuthResponse(), JSON.parse(res.text()));
                 console.log(authResp);
                 if (authResp.status == 200){
-                    console.log("Set token and expiration to browser local storage");
-                    //this.cookieService.set('token', authResp.data.value, new Date(authResp.data.expiration));
-
+                    console.log("Set login to browser local storage: " + login);
+                    console.log("Set username to browser local storage: " + authResp.data.username);
+                    console.log("Set token to browser local storage: " + authResp.data.value);
                     //TODO: think about this solution for auth.guard
                     localStorage.setItem('username', authResp.data.username)
+                    localStorage.setItem('login', login)
                     localStorage.setItem('token', authResp.data.value);
-                    //localStorage.setItem('token', authResp.data.value);
-                    //localStorage.setItem('login', login);
-                    //localStorage.setItem('token-expiration', authResp.data.expiration);
                 }
                 return authResp;
             }, 
